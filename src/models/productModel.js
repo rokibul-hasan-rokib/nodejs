@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema({
    name: {
@@ -20,10 +20,6 @@ const ProductSchema = new mongoose.Schema({
     image: {
         type: String
     },
-    reviews: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Review'
-    }]
 });
 
 module.exports = mongoose.model('Product', ProductSchema);
