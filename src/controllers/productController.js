@@ -63,3 +63,39 @@ export const updateProduct = async(req, res) => {
     }
 }
 
+export const getProductById = async(req,res) =>{
+      try {
+        const products = await Product.findByIdAndUpdate(req.params.id);
+        if(!products){
+            res.status(404).json({
+                success: false,
+                message: "Product Not found",
+            })
+        }
+        res.status(200).send({
+            success: true,
+            message: "Product Get Successfully",
+            products,
+          });
+      } catch (error) {
+        res.status(500).send({
+            success: true,
+            message: "Internal Server Error",
+            error,
+          });
+      }
+}
+
+export const deleteProduct = async(req, res) => {
+    try {
+        await Product.findByIdAndUpdate(req.params.id);
+        res.json({
+            message: "Product Deleted Successfully",
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+}
+
