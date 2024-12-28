@@ -17,9 +17,12 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
-app.get('/welcome/:name',(req,res)=>{
-     res.send(`Welcom to my home ${req.params.name}`)
-})
+app.get("/welcome/:name", (req, res) => {
+  res.send(`Welcom to my home ${req.params.name}`);
+});
+app.get("/welcome/:id", (req, res) => {
+  res.send(`Welcom to my home ${req.params.id}`);
+});
 
 app.use("/rokib", function (req, res) {
   res.send("rokib");
