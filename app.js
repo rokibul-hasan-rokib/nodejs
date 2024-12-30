@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
+import blogRoutes from "./src/routes/blogRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,5 +40,10 @@ app.use("/me", (req, res) => {
 app.use("/akash", (res, req) => {
   res.send("rokib");
 });
+
+
+
+
+app.use('/api',blogRoutes);
 
 export default app;
