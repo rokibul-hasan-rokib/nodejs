@@ -18,6 +18,14 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
+app.get("/app-get",(req,res)=>{
+  res.send().json({
+    message: "Hello i am app - get page",
+    success: true,
+    status: 200
+  })
+})
+
 app.get("/welcome/:name", (req, res) => {
   res.send(`Welcom to my home ${req.params.name}`);
 });
