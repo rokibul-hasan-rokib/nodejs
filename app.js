@@ -33,6 +33,10 @@ app.get("/welcome/:id", (req, res) => {
   res.send(`Welcom to my home ${req.params.id}`);
 });
 
+app.get('/me_in_front', (req, res) => {
+  res.render("me_in_front");
+});
+
 app.use("/rokib", function (req, res) {
   res.send("rokib");
 });
